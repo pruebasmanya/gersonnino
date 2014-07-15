@@ -4,41 +4,58 @@ vendors = moz o ms webkit official
     border 0
     margin 0
     padding 0
-html,body
+html,body,.perspective
+    width 100%
     height 100%
 body
-    background #d5e3e6
     min-height 100%
     overflow hidden
 li
     display inline-block
     a
         text-decoration none
+button
+    &:focus
+        outline 0
 header
     background #FFF
     height 10%
+    position relative
+    z-index 999
 main
-    height 75%
-main,.container,.fondo
+    height 85%
+main,.content,.fondo
     position relative
 footer
     background #118ac8
     height 15%
+#perspective
+    height 100%
 #navResponsive
     display none
-#navFull>ul
-    padding-top 10px
+    @media (max-width: 1024px)
+        display block
 #navFull
     ul.logo
         float left
+        padding-top 0.4em
     ul.botones
-        padding-top 5px
+        padding-top 0.2em
         float right
-.container
+        @media (max-width: 1024px)
+            display none
+.perspective
+    background #aaa
+    position relative
+.content
     margin 0 auto
     width 85%
     @media (max-width: 768px)
        width 95%
+    .texto
+        color #1dc3d3
+.wrapper
+    height 95%
 .buttonMenu
     background #03a6dc
     border-radius 5px
@@ -51,7 +68,100 @@ footer
     &.rosa
         background #ff576b
         box-shadow 0 5px 0 #ff576b
+.showMenu
+    relative left 0 top 0.5em
+    float right
+    display none
+    button
+        background none
+        cursor pointer
+        font-family sans-serif
+        line-height 1.5
+        font-size 2em
+        color #118ac8
+    @media (max-width: 1024px)
+        display block
+.idiomaMenu
+    display inline-block
+    position relative
+    z-index 999
+.cd-dropdown,.cd-select
+    position relative
+    width 124px
+    display block
+.cd-select
+    border 1px solid #ddd 
+.cd-dropdown
+    perspective 800px
+    > span
+        width 100%
+        height 60px
+        line-height 60px
+        color #999
+        font-weight 700
+        font-size 16px
+        background #fff
+        display block
+        padding 0 50px 0 30px
+        position relative
+        cursor pointer
+
+        transform-style preserve-3d
+        transform-origin 50% 0%
+        transition transform .3s
+        &:after
+            content '\25BC'
+            absolute right 0 top 15%
+            width 50px
+            text-align center
+            font-size 12px
+            padding 10px
+            height 50%
+            line-height 24px
+            border-left 1px solid #ddd
+        &:active
+            transform rotateX(60deg)
+        span[class^="icon-"],span[class*=" icon-"]
+            padding 0 30px
+    >span, ul li span
+        -webkit-backface-visibility: hidden;
+        -webkit-touch-callout: none;
+        user-select none
+    >span, ul li span:nth-last-child(-n+3) span
+        box-shadow 0 1px 1px rgba(0,0,0,0.2)
+    &.cd-active
+        > span
+            &:after
+                content '\25B2'
+    ul
+        list-style-type none
+        margin 0
+        padding 0
+        display block
+        absolute top 0
+        li
+            display block
+            position absolute
+            span
+                width 100%
+                background #fff
+                line-height 60px
+                padding 0 18px 0 63px
+                display block
+                color #bcbcbc
+                cursor pointer
+                font-weight 700
+.cd-active
+    &.cd-dropdown
+        >span,ul li span
+            box-shadow 0 1px 1px rgba(0,0,0,0.1)
+        ul li span
+            transition all 0.2s linear 0s
+            &:hover
+                background #03a6dc
+                color #fff
 .fondo
+    background #d5e3e6
     height 80%
     ul,ul li
         height 100%
@@ -69,7 +179,7 @@ footer
 .contenido
     absolute top 0, left 0
     width 100%
-    button
+    .botonContinuar
         background #ffa800
         box-shadow 0 5px 0 darken(#ffa800,15%)
         color #FFF
@@ -80,3 +190,174 @@ footer
         line-height 70px
         &:active
             border none
+.container
+    background #fff
+    height 100%
+    position relative
+    outline 1px solid rgba(0,0,0,0)
+    z-index 10
+    transform translateZ(0) translateX(0) rotateY(0deg)
+    &::after
+        content ''
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 0px
+        opacity 0
+        background rgba(0,0,0,0.2)
+        transition opacity 0.4s, height 0s 0.4s
+        transition opacity 0.4s, height 0s 0.4s
+
+.wrapper
+    position relative
+
+.component
+    margin 0 auto
+    width 60%
+    text-align justify
+    font-size 1.5em
+
+.perspective
+    &.modalview
+        position fixed
+        perspective 1500px
+
+.modalview
+    .container
+        position absolute
+        overflow hidden
+        width 100%
+        height 100%
+        cursor pointer
+        backface-visibility hidden
+    .wrapper
+        transform translateZ(-1px)
+
+.animate
+    .container
+        &::after
+            opacity 1
+            height 101%
+            transition opacity 0.3s
+
+.outer-nav
+    position absolute
+    height auto
+    font-size 2em
+    &.vertical
+        top 50%
+        transform translateY(-50%)
+        transform-style preserve-3d
+        a
+            display block
+    &.horizontal
+        left 50%
+        width 75%
+        max-width 1000px
+        text-align center
+        transform translateX(-50%)
+        a
+            margin 15px 20px
+    &.left
+        left 25%
+    &.right
+        right 25%
+    &.top
+        top 25%
+    &.bottom
+        bottom 25%
+    a
+        display inline-block
+        white-space nowrap
+        font-weight 300
+        margin 0 0 30px 0
+        color #fff
+        transition color 0.3s
+        transform-style preserve-3d
+        &:hover
+            color #ffdccd
+        &::before
+            display inline-block
+            font-family 'typicons'
+            speak none
+            font-style normal
+            font-weight normal
+            font-variant normal
+            text-transform none
+            line-height 1
+            margin-right 10px
+            font-smoothing antialiased
+            osx-font-smoothing grayscale
+            backface-visibility hidden
+.effect-movedown
+    background #118ac8
+    .container
+        transition transform 0.4s
+        transform-origin 50% 50%
+        &::after
+            background rgba(52, 73, 94, 0.5)
+    &.animate
+        .container
+            transform translateY(100%) translateZ(-1500px)
+        .outer-nav
+            a
+                opacity 1
+                transform translateY(0)
+                &:nth-child(2)
+                    transition-delay 0.04s
+                &:nth-child(3)
+                    transition-delay 0.08s
+                &:nth-child(4)
+                    transition-delay 0.12s
+                &:nth-child(5)
+                    transition-delay 0.16s
+                &:nth-child(6)
+                    transition-delay 0.2s
+                &:nth-child(7)
+                    transition-delay 0.24s
+    .outer-nav
+        a
+            opacity 0
+            transform translateY(-20px)
+            transition transform 0.4s, opacity 0.4s
+            &:hover
+                color #ed8151        
+.no-csstransforms3d
+    .effect-movedown
+        &.animate
+            .container
+                top 75%
+.shapes
+    absolute top 0
+    .shape
+        opacity 0
+        display inline-block
+        background none
+        position relative
+        heigth 130px
+        width 130px
+        .fondoShape
+            position relative
+        .texto
+            color #fff
+            absolute top 5px left 0 
+        .circle
+            border-radius 60px
+            height 120px
+            width 120px
+        .rectangle
+            height 70px
+            width 55px
+            transform rotate(-40deg) translate(80px,-10px)
+        .circle,.rectangle
+            &.coral
+                background #f23655
+            &.verde
+                background #9ac347
+            &.morado
+                background #7f50ba
+            &.turquesa
+                background #1dc3d3
+            &.mostaza
+                background #ffaf31
