@@ -1,0 +1,82 @@
+@import 'nib'
+vendors = moz o ms webkit official
+*
+    border 0
+    margin 0
+    padding 0
+html,body
+    height 100%
+body
+    background #d5e3e6
+    min-height 100%
+    overflow hidden
+li
+    display inline-block
+    a
+        text-decoration none
+header
+    background #FFF
+    height 10%
+main
+    height 75%
+main,.container,.fondo
+    position relative
+footer
+    background #118ac8
+    height 15%
+#navResponsive
+    display none
+#navFull>ul
+    padding-top 10px
+#navFull
+    ul.logo
+        float left
+    ul.botones
+        padding-top 5px
+        float right
+.container
+    margin 0 auto
+    width 85%
+    @media (max-width: 768px)
+       width 95%
+.buttonMenu
+    background #03a6dc
+    border-radius 5px
+    box-shadow 0 5px 0 darken(#0390bf,10%)
+    display block
+    color #FFF
+    height 40px
+    line-height 40px
+    padding 0 15px
+    &.rosa
+        background #ff576b
+        box-shadow 0 5px 0 #ff576b
+.fondo
+    height 80%
+    ul,ul li
+        height 100%
+.layer
+    div
+        position absolute
+        &.machupicchu
+            bottom 0
+            left -2%
+            img
+                display block
+.fondoBottom
+    background #0975ad
+    height 20%
+.contenido
+    absolute top 0, left 0
+    width 100%
+    button
+        background #ffa800
+        box-shadow 0 5px 0 darken(#ffa800,15%)
+        color #FFF
+        cursor pointer
+        font bold 1.5rem Arial
+        height 70px
+        padding 0 15px
+        line-height 70px
+        &:active
+            border none

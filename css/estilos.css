@@ -1,0 +1,116 @@
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: #d5e3e6;
+  min-height: 100%;
+  overflow: hidden;
+}
+li {
+  display: inline-block;
+}
+li a {
+  text-decoration: none;
+}
+header {
+  background: #fff;
+  height: 10%;
+}
+main {
+  height: 75%;
+}
+main,
+.container,
+.fondo {
+  position: relative;
+}
+footer {
+  background: #118ac8;
+  height: 15%;
+}
+#navResponsive {
+  display: none;
+}
+#navFull>ul {
+  padding-top: 10px;
+}
+#navFull ul.logo {
+  float: left;
+}
+#navFull ul.botones {
+  padding-top: 5px;
+  float: right;
+}
+.container {
+  margin: 0 auto;
+  width: 85%;
+}
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+}
+.buttonMenu {
+  background: #03a6dc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 0 #0382ac;
+  box-shadow: 0 5px 0 #0382ac;
+  display: block;
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+}
+.buttonMenu.rosa {
+  background: #ff576b;
+  -webkit-box-shadow: 0 5px 0 #ff576b;
+  box-shadow: 0 5px 0 #ff576b;
+}
+.fondo {
+  height: 80%;
+}
+.fondo ul,
+.fondo ul li {
+  height: 100%;
+}
+.layer div {
+  position: absolute;
+}
+.layer div.machupicchu {
+  bottom: 0;
+  left: -2%;
+}
+.layer div.machupicchu img {
+  display: block;
+}
+.fondoBottom {
+  background: #0975ad;
+  height: 20%;
+}
+.contenido {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.contenido button {
+  background: #ffa800;
+  -webkit-box-shadow: 0 5px 0 #d98f00;
+  box-shadow: 0 5px 0 #d98f00;
+  color: #fff;
+  cursor: pointer;
+  font: bold 1.5rem Arial;
+  height: 70px;
+  padding: 0 15px;
+  line-height: 70px;
+}
+.contenido button:active {
+  border: none;
+}
